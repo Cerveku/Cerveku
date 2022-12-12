@@ -1,10 +1,4 @@
-- 👋 Hi, I’m @Cerveku
-- 👀 I’m interested in ...
-- 🌱 I’m currently learning ...
-- 💞️ I’m looking to collaborate on ...
-- 📫 How to reach me ...
-
-<!---
-Cerveku/Cerveku is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->
+- 👋 Hi, I’m @Cerveku also known as Art Karimäki
+- 👀 I’m interested in software develope
+- 🌱 I’m currently learning to be professional dev at univercity of applied science in Oulu
+- 📫 How to reach me? Try 0404165242 or art.karimaki@gmail.com
