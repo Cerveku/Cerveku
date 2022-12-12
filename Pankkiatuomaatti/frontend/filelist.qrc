@@ -1,0 +1,22 @@
+<RCC>
+    <qresource prefix="/graphics/graphics">
+        <file>graphics/pic.png</file>
+        <file>graphics/mqD6skE.png</file>
+        <file>graphics/image.png</file>
+        <file>graphics/tausta.png</file>
+        <file>graphics/lah.png</file>
+        <file>graphics/saldo.png</file>
+        <file>graphics/history.png</file>
+        <file>graphics/logout.png</file>
+        <file>graphics/balance.png</file>
+        <file>graphics/lahetys.png</file>
+        <file>graphics/log.png</file>
+        <file>graphics/withdraw.png</file>
+        <file>graphics/nosto.png</file>
+    </qresource>
+    <qresource prefix="/">
+        <file>graphics/mqD6skE.png</file>
+        <file>fonts/monofonto.ttf</file>
+        <file>fonts.qrc</file>
+    </qresource>
+</RCC>
