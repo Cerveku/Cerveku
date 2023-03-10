@@ -5,4 +5,6 @@ For some reason it doesn't add new people to databse and also index is missing U
 I tried hard to make those but my brains didint work.
 I will fix it someday maybe if I see it necessery.
 
+But you can read existing data by just pressing show all employees button.
+
 G. Art Karimäki
