@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Employee Management System</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <div class="card-header">
+          <h1>Current Employees</h1>
+        </div>
+        <div class="card-body">
+          <button id="show-all-employees">Show all employees</button>
+          <table id="employee-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Role</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h2>Add a New Employee</h2>
+        </div>
+        <div class="card-body">
+          <form id="add-employee-form">
+            <label for="new-id">ID:</label>
+            <input type="text" id="new-id" name="id"><br>
+            <label for="new-name">Name:</label>
+            <input type="text" id="new-name" name="name"><br>
+            <label for="new-role">Role:</label>
+            <input type="text" id="new-role" name="role"><br>
+            <button type="submit">Add Employee</button>
+            <span id="message"></span>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="code.js"></script>
+</body>
+</html>
