@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { View, Text, TextInput, StyleSheet } from 'react-native';
 
 const HeartRateCalculator = () => {
   const [age, setAge] = useState('');
@@ -19,34 +20,54 @@ const HeartRateCalculator = () => {
     setUpperLimit(upper);
   };
 
-  const handleAgeChange = (e) => {
-    const newAge = e.target.value;
+  const handleAgeChange = (newAge) => {
     setAge(newAge);
     calculateLimits(newAge);
   };
 
   return (
-    <div>
-      <h1>Heart Rate Calculator</h1>
-      <label htmlFor="age">Enter your age: </label>
-      <input
-        type="number"
-        id="age"
-        name="age"
+    <View style={styles.container}>
+      <Text style={styles.title}>Heart Rate Calculator</Text>
+      <Text style={styles.label}>Enter your age: </Text>
+      <TextInput
+        style={styles.input}
+        keyboardType="numeric"
         value={age}
-        onChange={handleAgeChange}
+        onChangeText={handleAgeChange}
       />
-      <div>
+      <View>
         {lowerLimit !== null && upperLimit !== null ? (
           <>
-            <p>Hr Limit: {lowerLimit} - {upperLimit}</p>
+            <Text>Heart rate : {lowerLimit} - {upperLimit}</Text>
           </>
         ) : (
-          <p>Loading....</p>
+          <Text>Loading....</Text>
         )}
-      </div>
-    </div>
+      </View>
+    </View>
   );
 };
 
+const styles = StyleSheet.create({
+  container: {
+    padding: 20,
+  },
+  title: {
+    fontSize: 24,
+    marginBottom: 20,
+  },
+  label: {
+    fontSize: 16,
+  },
+  input: {
+    borderWidth: 1,
+    borderColor: '#ccc',
+    padding: 10,
+    marginVertical: 10,
+    fontSize: 16,
+  },
+});
+
 export default HeartRateCalculator;
+
+
