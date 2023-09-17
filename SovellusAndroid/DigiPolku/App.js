@@ -1,7 +1,6 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import StartScreen from './StartScreen'; // Tämä on tiedosto, jonka annoit
 import TopicScreen from './TopicScreen'; // Luotava tiedosto
 import Grade1_2Screen from './Grade1_2Screen';

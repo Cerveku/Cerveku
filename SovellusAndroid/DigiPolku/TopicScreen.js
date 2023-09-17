@@ -3,7 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 
 
 const TopicScreen = ({ route }) => {
-  const { grade, topic, DynamicScreen } = route.params;
+  const { grade, DynamicScreen } = route.params;
 
   return (
     <View style={styles.container}>
