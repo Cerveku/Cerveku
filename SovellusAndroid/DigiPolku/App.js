@@ -39,7 +39,7 @@ import LahjakkuusScreen1 from './topics/1_2lk/LahjakkuusScreen1';
 import LahjakkuusScreen3 from './topics/3_4lk/LahjakkuusScreen3';
 import LahjakkuusScreen5 from './topics/5_6lk/LahjakkuusScreen5';
 import LahjakkuusScreen7 from './topics/7_9lk/LahjakkuusScreen7';
-import SettingsScreen from './SettingsScreen';
+
 
 const Stack = createStackNavigator();
 
