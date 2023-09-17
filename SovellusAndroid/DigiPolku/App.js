@@ -41,14 +41,11 @@ import LahjakkuusScreen3 from './topics/3_4lk/LahjakkuusScreen3';
 import LahjakkuusScreen5 from './topics/5_6lk/LahjakkuusScreen5';
 import LahjakkuusScreen7 from './topics/7_9lk/LahjakkuusScreen7';
 import SettingsScreen from './SettingsScreen';
-import { DarkModeProvider } from './DarkModeContext';
 
 const Stack = createStackNavigator();
 
 const App = () => {
   return (
-    <DarkModeProvider>
-    <SettingsScreen />
     <NavigationContainer>
       <Stack.Navigator initialRouteName="StartScreen">
         <Stack.Screen name="StartScreen" component={StartScreen} />
@@ -92,7 +89,6 @@ const App = () => {
         <Stack.Screen name="LahjakkuusScreen7" component={LahjakkuusScreen7} />
       </Stack.Navigator>
     </NavigationContainer>
-    </DarkModeProvider>
   );
 };
 

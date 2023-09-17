@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect, useContext } from 'react';
+/* import React, { createContext, useState, useEffect, useContext } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export const DarkModeContext = createContext();
@@ -32,4 +32,4 @@ export const useDarkMode = () => {
     throw new Error('useDarkMode must be used within a DarkModeProvider');
   }
   return context;
-};
+}; */

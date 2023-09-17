@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { View, Text, Button, StyleSheet, TouchableOpacity, Alert } from 'react-native';
 
-const loadSettings = async () => {
+/*const loadSettings = async () => {
   try {
     const savedDarkMode = await AsyncStorage.getItem('darkMode');
     console.log('Saved Dark Mode:', savedDarkMode);  // Add this line
@@ -13,7 +13,7 @@ const loadSettings = async () => {
   } catch (error) {
     console.log(error);
   }
-};
+};*/
 
 const StartScreen = ({ navigation }) => {
 
@@ -43,10 +43,6 @@ const StartScreen = ({ navigation }) => {
         <TouchableOpacity style={styles.box} onPress={() => navigation.navigate('Grade7_9Screen', { grade: '7-9' })}>
           <Text style={styles.boxText}>7-9 luokka</Text>
         </TouchableOpacity>
-        <Button 
-        title="Go to Settings"
-        onPress={() => navigation.navigate('Settings')}
-      />
         {/* ... */}
       </View>
     </View>
