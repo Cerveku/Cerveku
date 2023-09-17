@@ -1,19 +1,6 @@
 import React, { useEffect } from 'react';
-import { View, Text, Button, StyleSheet, TouchableOpacity, Alert } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Alert } from 'react-native';
 
-/*const loadSettings = async () => {
-  try {
-    const savedDarkMode = await AsyncStorage.getItem('darkMode');
-    console.log('Saved Dark Mode:', savedDarkMode);  // Add this line
-    if (savedDarkMode !== null) {
-      setIsDarkMode(JSON.parse(savedDarkMode));
-    } else {
-      setIsDarkMode(false);
-    }
-  } catch (error) {
-    console.log(error);
-  }
-};*/
 
 const StartScreen = ({ navigation }) => {
 

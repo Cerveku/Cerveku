@@ -1,48 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 
-//const Grade5_6Screen = ({ navigation }) => {
-  //const topics = [
-    //'Perustaidot ja tekninen osaaminen',
-    //'Tuotanto, esittäminen ja luovat prosessit',
-    //'Ohjelmointiosaaminen',
-    //'Vastuu, turvallisuus, ergonomia ja terveys',
-    //'Tiedonhallinta ja informaatiolukutaito',
-    //'Vuorovaikutus, kommunikaatio ja verkostoituminen',
-    //'Medialukutaito',
-    //'Lahjakkuus',
-    //'Toimintarajoitteiset ja muun tuen tarpeessa olevat oppilaat'
-  //];
-
-  //return (
-    //<View style={styles.container}>
-      //<Text style={styles.title}>5-6 luokka: Valitse aihealue</Text>
-      //<ScrollView style={styles.scrollContainer}>
-        //{topics.map((topic, index) => (
-          //<TouchableOpacity 
-            //key={index} 
-            //style={styles.topicBox}
-            //onPress={() => navigation.navigate(`${topic}Screen`)}
-          //>
-            //<Text style={styles.topicText}>{topic}</Text>
-          //</TouchableOpacity>
-        //))}
-      //</ScrollView>
-    //</View>
-  //);
-//};*
-
-//const topicToFileMap = {
-//  'Perustaidot ja tekninen osaaminen': require('./topics/1_2lk/PerustaidotJaTekninenOsaaminenScreen').default,
-//  'Tuotanto, esittäminen ja luovat prosessit': require('./topics/1_2lk/TuotantoEsittaminenJaLuovatProsessitScreen').default,
-  //'Ohjelmointiosaaminen': require('./topics/1_2lk/OhjelmointiosaaminenScreen').default,
-  //'Vastuu, turvallisuus, ergonomia ja terveys': require('./topics/1_2lk/VastuuTurvallisuusErgonomiaJaTerveysScreen').default,
-  //'Tiedonhallinta ja informaatiolukutaito': require('./topics/1_2lk/TiedonhallintaJaInformaatiolukutaitoScreen').default,    
-  //'Vuorovaikutus, kommunikaatio ja verkostoituminen': require('./topics/1_2lk/VuorovaikutusKommunikaatioJaVerkostoituminenScreen').default,
-  //'Medialukutaito': require('./topics/1_2lk/MedialukutaitoScreen').default,
-  //'Lahjakkuus': require('./topics/1_2lk/LahjakkuusScreen').default,
-//};
-
 const Grade5_6Screen = ({ navigation }) => {
   return (
     <View style={styles.container}>
