@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "vigorous-french-fries",
-    "slug": "snack-ef5ac2a9-889f-41b8-a563-ff40eb3fcb01",
+    "name": "DigiPolku",
+    "slug": "digipolku",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -19,12 +19,19 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.cerveku.digipolku"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "9c2e0efb-b805-4b1d-b3f6-a71ab811de78"
+      }
+    },
+    "owner": "cerveku"
   }
 }
