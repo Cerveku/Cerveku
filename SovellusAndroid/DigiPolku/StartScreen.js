@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Alert } from 'react-native';
-
+import { View, Text, Button, StyleSheet, TouchableOpacity, Alert } from 'react-native';
 
 const StartScreen = ({ navigation }) => {
 
@@ -18,23 +17,31 @@ const StartScreen = ({ navigation }) => {
     <View style={styles.container}>
       <Text style={styles.title}>Valitse ikäryhmä</Text>
       <View style={styles.boxContainer}>
-        <TouchableOpacity style={styles.box} onPress={() => navigation.navigate('Grade1_2Screen', { grade: '1-2' })}>
+        <TouchableOpacity style={styles.box} onPress={() => navigation.navigate('1-2 LK')}>
           <Text style={styles.boxText}>1-2 luokka</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.box} onPress={() => navigation.navigate('Grade3_4Screen', { grade: '3-4' })}>
+        <TouchableOpacity style={styles.box} onPress={() => navigation.navigate('3-4 LK')}>
           <Text style={styles.boxText}>3-4 luokka</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.box} onPress={() => navigation.navigate('Grade5_6Screen', { grade: '5-6' })}>
+        <TouchableOpacity style={styles.box} onPress={() => navigation.navigate('5-6 LK')}>
           <Text style={styles.boxText}>5-6 luokka</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.box} onPress={() => navigation.navigate('Grade7_9Screen', { grade: '7-9' })}>
+        <TouchableOpacity style={styles.box} onPress={() => navigation.navigate('7-9 LK')}>
           <Text style={styles.boxText}>7-9 luokka</Text>
         </TouchableOpacity>
         {/* ... */}
       </View>
+      <View style={styles.bottomContainer}>
+        <Button
+          title="Asetukset"
+          color="#841584"
+         TouchableOpacity onPress={() => navigation.navigate('Asetukset')}
+        />
+        </View>
     </View>
   );
 };
+
 
 const styles = StyleSheet.create({
   container: {
@@ -63,6 +70,11 @@ const styles = StyleSheet.create({
   },
   boxText: {
     fontSize: 18,
+  },
+  bottomContainer: {
+    flex: 1,
+    justifyContent: 'flex',
+    marginBottom: 20,
   },
 });
 
