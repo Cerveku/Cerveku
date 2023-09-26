@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Loviisa Kouluruoka",
-    "slug": "MySchoolLunchApp",
+    "slug": "kouluruoka",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -21,10 +21,17 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.cerveku.kouluruoka"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "40d205af-757f-4503-b574-63834142826d"
+      }
+    },
+    "owner": "cerveku"
   }
 }
