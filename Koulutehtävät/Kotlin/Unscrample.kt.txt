@@ -1,0 +1,19 @@
+fun main() {
+    val words = listOf("apple", "banana", "cherry")
+    val currentWord = words.random()
+    val shuffledWord = currentWord.toCharArray().toList().shuffled().joinToString("")
+
+    println("Unscramble the word: $shuffledWord")
+
+    while (true) {
+        print("Your answer: ")
+        val userAnswer = readLine()
+
+        if (userAnswer.equals(currentWord, ignoreCase = true)) {
+            println("Congratulations! You guessed the word.")
+            break
+        } else {
+            println("Wrong answer. Try again.")
+        }
+    }
+}

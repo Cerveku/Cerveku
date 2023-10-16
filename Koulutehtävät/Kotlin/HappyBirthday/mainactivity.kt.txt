@@ -1,0 +1,18 @@
+package com.example.happybirthday
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.widget.TextView
+
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        val name = "John" // Oletetaan, että käyttäjän nimi on John
+        val age = 30 // Oletetaan, että käyttäjä on 30-vuotias
+
+        val textView = findViewById<TextView>(R.id.birthdayMessage)
+        textView.text = "Happy $age Birthday, $name!"
+    }
+}

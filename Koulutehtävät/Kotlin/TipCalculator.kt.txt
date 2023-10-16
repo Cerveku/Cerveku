@@ -1,0 +1,16 @@
+import java.util.Scanner
+
+fun main(args: Array<String>) {
+    val scanner = Scanner(System.`in`)
+    println("Enter the total bill amount: ")
+    val billAmount = scanner.nextDouble()
+    println("Enter the tip percentage (e.g., 15 for 15%): ")
+    val tipPercentage = scanner.nextDouble()
+
+    // Calculate the tip
+    val tipAmount = (billAmount * tipPercentage) / 100
+    val totalAmount = billAmount + tipAmount
+
+    println("Tip amount: $tipAmount")
+    println("Total bill with tip: $totalAmount")
+}
