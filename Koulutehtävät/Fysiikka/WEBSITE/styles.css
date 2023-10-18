@@ -1,0 +1,68 @@
+/* Reset some default browser styles */
+body, h1, h2, ul, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Make a background color */
+body {
+    background: #f4f4f4;
+    color: #333;
+    font: 14px Arial, sans-serif;
+}
+
+/* Give header a background */
+header {
+    background: #50b3a2;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+}
+
+/* Style main content */
+main {
+    margin: 15px;
+    padding: 15px;
+    background: white;
+}
+
+/* Style sections */
+section {
+    margin-bottom: 20px;
+}
+
+/* Style map container */
+#map-container {
+    width: 25%;
+    height: 500px;
+    border: 1px solid #ccc;
+    overflow: hidden; /* Add this line */
+}
+
+/* Style the image inside the map container */
+#map-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Style buttons */
+button {
+    background: #50b3a2;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+/* Style footer */
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
