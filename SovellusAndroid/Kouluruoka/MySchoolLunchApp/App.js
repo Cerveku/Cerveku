@@ -3,11 +3,12 @@ import { Text, View, StyleSheet, Button } from 'react-native';
 import { initializeApp } from 'firebase/app';
 import { getDatabase, ref, onValue } from 'firebase/database';
 import { StatusBar } from 'react-native'; // Tämä rivi import-lausekkeiden joukossa
-import FeedbackBox from './palaute'; 
+import FeedbackBox from './components/palaute'; 
 
 export default function App() {
   const [lunch, setLunch] = useState("Ei tietoa");
   const [showFeedbackBox, setShowFeedbackBox] = useState(false);
+  const [currentDate, setCurrentDate] = useState(new Date());
 
   const toggleFeedbackBox = () => {
     setShowFeedbackBox(!showFeedbackBox);
@@ -28,7 +29,6 @@ export default function App() {
 
   // Palauttaa nykyisen viikon numeron
   function getWeekNumber(d) {
-    //koodi joka laskee viikon numeron
     const date = new Date(d.getTime());
     date.setHours(0, 0, 0, 0);
     date.setDate(date.getDate() + 3 - (date.getDay() + 6) % 7);
@@ -43,43 +43,12 @@ export default function App() {
     return days[d.getDay()];
   }
 
-  useEffect(() => {
-    const today = new Date();
-    const currentWeek = getWeekNumber(today);
-    const currentDay = getDay(today);
+  const updateLunch = (date) => {
+    const currentWeek = getWeekNumber(date);
+    const currentDay = getDay(date);
 
     const weekRef = ref(getDatabase(), `weeks/${currentWeek}`);
 
-    const updateRef = ref(getDatabase(), 'updateRequired');
-
-    // Kuuntele vain tiettyä viikkoa koskevat tietokannan muutokset
-    onValue(weekRef, (snapshot) => {
-      const weekData = snapshot.val();
-      if (weekData && weekData[currentDay]) {
-        setLunch(weekData[currentDay]);
-      } else {
-        setLunch("Ei tietoa");
-      }
-    });
-
-    // Kuuntele päivityksen tarkistusta
-    onValue(updateRef, (snapshot) => {
-      const updateRequired = snapshot.val();
-      if (updateRequired === 1) {
-        alert("Sovellus pitää päivittää.");
-      }
-    });
-
-  }, []);
-
-  const goToNextDay = () => {
-    const today = new Date();
-    today.setDate(today.getDate() + 1); // Siirretään päivää eteenpäin
-    const currentWeek = getWeekNumber(today);
-    const currentDay = getDay(today);
-  
-    const weekRef = ref(getDatabase(), `weeks/${currentWeek}`);
-  
     // Kuuntele tiettyä viikkoa ja päivää koskevat tietokannan muutokset
     onValue(weekRef, (snapshot) => {
       const weekData = snapshot.val();
@@ -90,31 +59,28 @@ export default function App() {
       }
     });
   };
+
+  useEffect(() => {
+    updateLunch(currentDate);
+  }, [currentDate]);
+
+  const goToNextDay = () => {
+    const nextDate = new Date(currentDate);
+    nextDate.setDate(nextDate.getDate() + 1);
+    setCurrentDate(nextDate);
+  };
   
   const goToPreviousDay = () => {
-    const today = new Date();
-    today.setDate(today.getDate() - 1); // Siirretään päivää taaksepäin
-    const currentWeek = getWeekNumber(today);
-    const currentDay = getDay(today);
-  
-    const weekRef = ref(getDatabase(), `weeks/${currentWeek}`);
-  
-    // Kuuntele tiettyä viikkoa ja päivää koskevat tietokannan muutokset
-    onValue(weekRef, (snapshot) => {
-      const weekData = snapshot.val();
-      if (weekData && weekData[currentDay]) {
-        setLunch(weekData[currentDay]);
-      } else {
-        setLunch("Ei tietoa");
-      }
-    });
+    const previousDate = new Date(currentDate);
+    previousDate.setDate(previousDate.getDate() - 1);
+    setCurrentDate(previousDate);
   };
 
   return (
     <View style={styles.container}>
       <StatusBar hidden={true} />
       <View style={styles.dateBox}>
-        <Text style={styles.dateText}>{new Date().toDateString()}</Text>
+        <Text style={styles.dateText}>{currentDate.toDateString()}</Text>
       </View>
       <View style={styles.textBox}>
         <Text style={styles.headerText}>Loviisan kouluruoka</Text>
