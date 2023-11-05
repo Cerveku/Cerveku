@@ -5,7 +5,6 @@ import { getDatabase, ref, onValue } from 'firebase/database';
 import { StatusBar } from 'react-native'; // Tämä rivi import-lausekkeiden joukossa
 import FeedbackBox from './palaute'; 
 
-
 export default function App() {
   const [lunch, setLunch] = useState("Ei tietoa");
   const [showFeedbackBox, setShowFeedbackBox] = useState(false);
@@ -27,80 +26,126 @@ export default function App() {
 
   initializeApp(firebaseConfig);
 
-    // Palauttaa nykyisen viikon numeron
-    function getWeekNumber(d) {
-//koodi joka laskee viikon numeron
-      const date = new Date(d.getTime());
-      date.setHours(0, 0, 0, 0);
-      date.setDate(date.getDate() + 3 - (date.getDay() + 6) % 7);
-      const week1 = new Date(date.getFullYear(), 0, 4);
-      return 1 + Math.round(((date.getTime() - week1.getTime()) / 86400000
-        - 3 + (week1.getDay() + 6) % 7) / 7);
-    }
-  
-    // Palauttaa nykyisen päivän lyhenteen
-    function getDay(d) {
-      const days = ['su', 'ma', 'ti', 'ke', 'to', 'pe', 'la'];
-      return days[d.getDay()];
-    }
+  // Palauttaa nykyisen viikon numeron
+  function getWeekNumber(d) {
+    //koodi joka laskee viikon numeron
+    const date = new Date(d.getTime());
+    date.setHours(0, 0, 0, 0);
+    date.setDate(date.getDate() + 3 - (date.getDay() + 6) % 7);
+    const week1 = new Date(date.getFullYear(), 0, 4);
+    return 1 + Math.round(((date.getTime() - week1.getTime()) / 86400000
+      - 3 + (week1.getDay() + 6) % 7) / 7);
+  }
 
-    useEffect(() => {
-      const today = new Date();
-      const currentWeek = getWeekNumber(today);
-      const currentDay = getDay(today);
-  
-      const weekRef = ref(getDatabase(), `weeks/${currentWeek}`);
+  // Palauttaa nykyisen päivän lyhenteen
+  function getDay(d) {
+    const days = ['su', 'ma', 'ti', 'ke', 'to', 'pe', 'la'];
+    return days[d.getDay()];
+  }
 
-      const updateRef = ref(getDatabase(), 'updateRequired');
-  
-      // Kuuntele vain tiettyä viikkoa koskevat tietokannan muutokset
-      onValue(weekRef, (snapshot) => {
-        const weekData = snapshot.val();
-        if (weekData && weekData[currentDay]) {
-          setLunch(weekData[currentDay]);
-        } else {
-          setLunch("Ei tietoa");
-        }
-      });
+  useEffect(() => {
+    const today = new Date();
+    const currentWeek = getWeekNumber(today);
+    const currentDay = getDay(today);
 
-      // Kuuntele päivityksen tarkistusta
-  onValue(updateRef, (snapshot) => {
-    const updateRequired = snapshot.val();
-    if (updateRequired === 1) {
-      alert("Sovellus pitää päivittää.");
-    }
-  });
+    const weekRef = ref(getDatabase(), `weeks/${currentWeek}`);
 
-  
+    const updateRef = ref(getDatabase(), 'updateRequired');
+
+    // Kuuntele vain tiettyä viikkoa koskevat tietokannan muutokset
+    onValue(weekRef, (snapshot) => {
+      const weekData = snapshot.val();
+      if (weekData && weekData[currentDay]) {
+        setLunch(weekData[currentDay]);
+      } else {
+        setLunch("Ei tietoa");
+      }
+    });
+
+    // Kuuntele päivityksen tarkistusta
+    onValue(updateRef, (snapshot) => {
+      const updateRequired = snapshot.val();
+      if (updateRequired === 1) {
+        alert("Sovellus pitää päivittää.");
+      }
+    });
+
   }, []);
 
+  const goToNextDay = () => {
+    const today = new Date();
+    today.setDate(today.getDate() + 1); // Siirretään päivää eteenpäin
+    const currentWeek = getWeekNumber(today);
+    const currentDay = getDay(today);
+  
+    const weekRef = ref(getDatabase(), `weeks/${currentWeek}`);
+  
+    // Kuuntele tiettyä viikkoa ja päivää koskevat tietokannan muutokset
+    onValue(weekRef, (snapshot) => {
+      const weekData = snapshot.val();
+      if (weekData && weekData[currentDay]) {
+        setLunch(weekData[currentDay]);
+      } else {
+        setLunch("Ei tietoa");
+      }
+    });
+  };
+  
+  const goToPreviousDay = () => {
+    const today = new Date();
+    today.setDate(today.getDate() - 1); // Siirretään päivää taaksepäin
+    const currentWeek = getWeekNumber(today);
+    const currentDay = getDay(today);
+  
+    const weekRef = ref(getDatabase(), `weeks/${currentWeek}`);
+  
+    // Kuuntele tiettyä viikkoa ja päivää koskevat tietokannan muutokset
+    onValue(weekRef, (snapshot) => {
+      const weekData = snapshot.val();
+      if (weekData && weekData[currentDay]) {
+        setLunch(weekData[currentDay]);
+      } else {
+        setLunch("Ei tietoa");
+      }
+    });
+  };
 
-
-    return (
-      <View style={styles.container}>
-        <StatusBar hidden={true} />
-        <View style={styles.dateBox}>
-          <Text style={styles.dateText}>{new Date().toDateString()}</Text>
-        </View>
-        <View style={styles.textBox}>
-          <Text style={styles.headerText}>Loviisan kouluruoka</Text>
-          <Text style={styles.lunchText}>Päivän lounas: {lunch}</Text>
-        </View>
-    
-        {/* Sininen nappi vasemmassa alakulmassa */}
-        <View style={{ position: 'absolute', bottom: 20, left: 20 }}>
-          <Button
-            title="Anna palautetta"
-            color="blue"
-            onPress={toggleFeedbackBox}
-          />
-        </View>
-    
-        {/* Näytä FeedbackBox, jos showFeedbackBox on true */}
-        {showFeedbackBox && <FeedbackBox hideFeedback={() => setShowFeedbackBox(false)} />}
+  return (
+    <View style={styles.container}>
+      <StatusBar hidden={true} />
+      <View style={styles.dateBox}>
+        <Text style={styles.dateText}>{new Date().toDateString()}</Text>
       </View>
-    );
-    
+      <View style={styles.textBox}>
+        <Text style={styles.headerText}>Loviisan kouluruoka</Text>
+        <Text style={styles.lunchText}>Päivän lounas: {lunch}</Text>
+      </View>
+
+      {/* Lisätään napit seuraavalle päivälle ja edelliselle päivälle */}
+      <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 20 }}>
+        <Button
+          title="Edellinen päivä"
+          onPress={goToPreviousDay}
+        />
+        <Button
+          title="Seuraava päivä"
+          onPress={goToNextDay}
+        />
+      </View>
+
+      {/* Sininen nappi vasemmassa alakulmassa */}
+      <View style={{ position: 'absolute', bottom: 20, left: 20 }}>
+        <Button
+          title="Anna palautetta"
+          color="blue"
+          onPress={toggleFeedbackBox}
+        />
+      </View>
+
+      {/* Näytä FeedbackBox, jos showFeedbackBox on true */}
+      {showFeedbackBox && <FeedbackBox hideFeedback={() => setShowFeedbackBox(false)} />}
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({

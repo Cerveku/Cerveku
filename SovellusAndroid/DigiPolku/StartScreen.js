@@ -1,17 +1,81 @@
-import React, { useEffect } from 'react';
-import { View, Text, Button, StyleSheet, TouchableOpacity, Alert } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, Text, TextInput, Button, Alert, AsyncStorage, TouchableOpacity, StyleSheet } from 'react-native';
+import firebase from 'firebase';
 
 const StartScreen = ({ navigation }) => {
 
+  const [hasRegistered, setHasRegistered] = useState(false);
+  const [userData, setUserData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    school: '',
+    grade: ''
+  });
+
   useEffect(() => {
-    Alert.alert(
-      "Tervetuloa Digipolun sovellukseen!",
-      "Sovellus on vielä kehityksen alla, mutta sen on tarkoitus olla opettajan tukena DigiOpetuksessa.",
-      [
-        { text: "OK", onPress: () => console.log("OK Pressed") }
-      ]
-    );
+    const checkRegistration = async () => {
+      const value = await AsyncStorage.getItem('hasRegistered');
+      if (value !== null) {
+        setHasRegistered(JSON.parse(value));
+      }
+    };
+
+    checkRegistration();
   }, []);
+
+  const handleInputChange = (field, value) => {
+    setUserData({
+      ...userData,
+      [field]: value,
+    });
+  };
+
+  const handleRegister = async () => {
+    // Tallenna tiedot Firebaseen
+    const userRef = firebase.database().ref('users'); // Osoittaa "users" taulukkoon Firebase-tietokannassa
+    const newUser = userRef.push(); // Luo uuden uniikin ID:n käyttäjälle
+    newUser.set(userData); // Tallenna userData Firebaseen uuden ID:n alle
+  
+    // Tallenna merkki laitteelle
+    await AsyncStorage.setItem('hasRegistered', JSON.stringify(true));
+  
+    setHasRegistered(true);
+  };
+
+  if (!hasRegistered) {
+    return (
+      <View>
+        <Text>Please register:</Text>
+        <TextInput
+          placeholder="First Name"
+          value={userData.firstName}
+          onChangeText={(text) => handleInputChange('firstName', text)}
+        />
+        <TextInput
+          placeholder="Last Name"
+          value={userData.lastName}
+          onChangeText={(text) => handleInputChange('lastName', text)}
+        />
+        <TextInput
+          placeholder="Email"
+          value={userData.email}
+          onChangeText={(text) => handleInputChange('email', text)}
+        />
+        <TextInput
+          placeholder="School"
+          value={userData.school}
+          onChangeText={(text) => handleInputChange('school', text)}
+        />
+        <TextInput
+          placeholder="Grade"
+          value={userData.grade}
+          onChangeText={(text) => handleInputChange('grade', text)}
+        />
+        <Button title="Register" onPress={handleRegister} />
+      </View>
+    );
+  }
 
   return (
     <View style={styles.container}>
@@ -29,19 +93,17 @@ const StartScreen = ({ navigation }) => {
         <TouchableOpacity style={styles.box} onPress={() => navigation.navigate('7-9 LK')}>
           <Text style={styles.boxText}>7-9 luokka</Text>
         </TouchableOpacity>
-        {/* ... */}
       </View>
       <View style={styles.bottomContainer}>
         <Button
           title="Asetukset"
           color="#841584"
-         TouchableOpacity onPress={() => navigation.navigate('Asetukset')}
+          onPress={() => navigation.navigate('Asetukset')}
         />
-        </View>
+      </View>
     </View>
   );
 };
-
 
 const styles = StyleSheet.create({
   container: {
@@ -73,7 +135,7 @@ const styles = StyleSheet.create({
   },
   bottomContainer: {
     flex: 1,
-    justifyContent: 'flex',
+    justifyContent: 'flex-end',
     marginBottom: 20,
   },
 });

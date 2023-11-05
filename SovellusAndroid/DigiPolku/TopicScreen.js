@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-
+import firebase from 'firebase';
 
 const TopicScreen = ({ route }) => {
   const { grade, topic, DynamicScreen } = route.params;

@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
+import firebase from 'firebase';
 
 const Grade1_2Screen = ({ navigation }) => {
   return (

@@ -41,6 +41,20 @@ import LahjakkuusScreen1 from './topics/1_2lk/LahjakkuusScreen1';
 import LahjakkuusScreen3 from './topics/3_4lk/LahjakkuusScreen3';
 import LahjakkuusScreen5 from './topics/5_6lk/LahjakkuusScreen5';
 import LahjakkuusScreen7 from './topics/7_9lk/LahjakkuusScreen7';
+import firebase from 'firebase';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBYBBYzCyeqCHXPa86ISj0_ode0xh9R2xU",
+  authDomain: "myschoollunchapp-d6970.firebaseapp.com",
+  databaseURL: "https://myschoollunchapp-d6970-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "myschoollunchapp-d6970",
+  storageBucket: "myschoollunchapp-d6970.appspot.com",
+  messagingSenderId: "677352536871",
+  appId: "1:677352536871:web:62073bbb2dded209a3c702"
+};
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
 
 const Stack = createStackNavigator();
 
