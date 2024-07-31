@@ -1,11 +1,45 @@
-# Sample Snack app
+# Kalori-laskuri
 
-Open the `App.js` file to start writing some code. You can preview the changes directly on your phone or tablet by scanning the **QR code** or use the iOS or Android emulators. When you're done, click **Save** and share the link!
+Kalori-laskuri on React Native -sovellus, joka auttaa käyttäjiä arvioimaan päivittäisen kaloritarpeensa ja ihannepainonsa sekä kalorimäärän, joka tarvitaan ihannepainon saavuttamiseksi vuoden aikana.
 
-When you're ready to see everything that Expo provides (or if you want to use your own editor) you can **Download** your project and use it with [expo cli](https://docs.expo.dev/get-started/installation/#expo-cli)).
+## Ominaisuudet
 
-All projects created in Snack are publicly available, so you can easily share the link to this project via link, or embed it on a web page with the `<>` button.
+- Laskee päivittäisen kaloritarpeen käyttäjän painon, pituuden, sukupuolen ja aktiivisuustason perusteella.
+- Näyttää ihannepainon BMI-laskelman perusteella.
+- Laskee kalorimäärän, joka tarvitaan ihannepainon saavuttamiseksi vuoden aikana.
+- Tukee sukupuolivaihtoehtoja: mies, nainen ja yksisarvinen.
+- Näyttää humoristisen viestin yksisarvisille, koska he ovat jo täydellisiä sellaisinaan.
 
-If you're having problems, you can tweet to us [@expo](https://twitter.com/expo) or ask in our [forums](https://forums.expo.dev/c/expo-dev-tools/61) or [Discord](https://chat.expo.dev/).
+## Käyttöohjeet
 
-Snack is Open Source. You can find the code on the [GitHub repo](https://github.com/expo/snack).
+1. Syötä paino (kg) tekstikenttään.
+2. Syötä pituus (cm) tekstikenttään.
+3. Valitse sukupuoli:
+    - Mies
+    - Nainen
+    - Yksisarvinen
+4. Valitse aktiivisuustaso:
+    - Kevyt
+    - Tavallinen
+    - Kohtalainen
+    - Kova
+    - Erittäin kova
+5. Paina "Calculate"-painiketta laskeaksesi päivittäisen kaloritarpeen ja ihannepainon.
+6. Tulokset näytetään sovelluksen alaosassa.
+
+## Asennus ja käynnistys
+
+1. Kloonaa repositorio:
+   ```bash
+   git clone https://github.com/kayttajanimi/kalori-laskuri.git
+2. Asenna tarvittavat riippuvuudet:
+   ```
+   cd kalori-laskuri
+   npm install
+3. Käynnistä sovellus:
+   ```bash
+   npx react-native run-android  # Android-laitteille
+   npx react-native run-ios      # iOS-laitteille
+
+## Lisenssi
+Tämä projekti on lisensoitu MIT-lisenssillä
