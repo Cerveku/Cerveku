@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">IsCool</string>
+    <string name="cool">isCool</string>
+    <string name="playButtonText">Play!</string>
+    <string name="restartButtonText">Restart</string>
+    <string name="cancelButtonText">Cancel</string>
+    <string name="quitGameButtonText">Quit</string>
+    <string name="okButtonText">OK</string>
+    <string name="instructionsText">Click isCool when the picture IS COOL, i.e., you can see sunglasses. \n\nLonger you last, more points you get. \n\nGood luck!</string>
+</resources>
