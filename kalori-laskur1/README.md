@@ -33,7 +33,7 @@ Kalori-laskuri on React Native -sovellus, joka auttaa k채ytt채ji채 arvioimaan p�
    ```bash
    git clone https://github.com/kayttajanimi/kalori-laskuri.git
 2. Asenna tarvittavat riippuvuudet:
-   ```
+   ```bash
    cd kalori-laskuri
    npm install
 3. K채ynnist채 sovellus:
