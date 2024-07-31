@@ -15,14 +15,7 @@ export default function App() {
   };
 
   const firebaseConfig = {
-    apiKey: "AIzaSyBYBBYzCyeqCHXPa86ISj0_ode0xh9R2xU",
-    authDomain: "myschoollunchapp-d6970.firebaseapp.com",
-    databaseURL: "https://myschoollunchapp-d6970-default-rtdb.europe-west1.firebasedatabase.app",
-    projectId: "myschoollunchapp-d6970",
-    storageBucket: "myschoollunchapp-d6970.appspot.com",
-    messagingSenderId: "677352536871",
-    appId: "1:677352536871:web:62073bbb2dded209a3c702",
-    measurementId: "G-LTVRRM1JKN"
+  
   };
 
   initializeApp(firebaseConfig);
