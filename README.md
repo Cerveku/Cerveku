@@ -1,8 +1,23 @@
 # Hi, I'm Art Karimäki 👋
 
-**K-12 ICT Support Specialist** in Loviisa, Finland, and a Bachelor's student in Information Technology at **Oulu University of Applied Sciences (OAMK)**. By day I run and maintain the ICT infrastructure for the schools in Loviisa; by night I build things — from security tooling to full-stack web apps.
+**Bachelor of Engineering in Information Technology (AMK)** and **K-12 ICT Support Specialist** in Loviisa, Finland. By day I run and maintain the ICT infrastructure for the schools in Loviisa; by night I build things — from security tooling to full-stack web apps.
 
 I like projects that solve a real problem end to end: something that actually gets installed, deployed, and used — not just a script.
+
+🌐 Personal site: [art.karimaki.fi](https://art.karimaki.fi) · IT-Elmeri: [it-elmeri.fi](https://it-elmeri.fi)
+
+---
+
+## 📊 GitHub stats
+
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=Cerveku&show_icons=true&count_private=true&hide_border=true" alt="Art's GitHub stats" height="165" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Cerveku&layout=compact&hide_border=true&langs_count=8" alt="Top languages" height="165" />
+</p>
+
+<p align="center">
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=Cerveku&hide_border=true" alt="GitHub streak" height="165" />
+</p>
 
 ---
 
@@ -51,7 +66,7 @@ A crypto swing-trading bot built from scratch in **Python** (no ready-made frame
 
 ## 🎓 Education
 
-- **B.Sc. in Information Technology** *(in progress)* — Oulu University of Applied Sciences
+- **Bachelor of Engineering in Information Technology (Tietotekniikan insinööri, AMK)** — Oulu University of Applied Sciences, graduated 09/2025
 
 ---
 
@@ -63,7 +78,8 @@ Sci-fi films and series, and strategy games (Master of Orion 3, Civilization, To
 
 ## 📫 Get in touch
 
-- **Email**: [art.karimaki@gmail.com](mailto:art.karimaki@gmail.com)
+- **Email**: [art.karimaki@gmail.com](mailto:art.karimaki@gmail.com) · [elmeri@it-elmeri.fi](mailto:elmeri@it-elmeri.fi)
+- **Web**: [art.karimaki.fi](https://art.karimaki.fi) · [it-elmeri.fi](https://it-elmeri.fi)
 - **Location**: Loviisa, Finland
 
 Feel free to explore my repositories and reach out about questions or collaborations!
