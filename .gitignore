@@ -1,0 +1,11 @@
+# Käännetyt sovellukset: julkaise GitHub Releasesin kautta, älä versionhallinnassa
+*.apk
+*.aab
+*.exe
+
+# Build-tulosteet
+build/
+dist/
+target/
+__pycache__/
+*.pyc
