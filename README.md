@@ -11,12 +11,12 @@ I like projects that solve a real problem end to end: something that actually ge
 ## 📊 GitHub stats
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=Cerveku&show_icons=true&count_private=true&hide_border=true" alt="Art's GitHub stats" height="165" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Cerveku&layout=compact&hide_border=true&langs_count=8" alt="Top languages" height="165" />
+  <img src="https://github-readme-stats.vercel.app/api?username=Cerveku&show_icons=true&count_private=true&hide_border=true&cache_seconds=86400" alt="Art's GitHub stats" height="165" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Cerveku&layout=compact&hide_border=true&langs_count=8&cache_seconds=86400" alt="Top languages" height="165" />
 </p>
 
 <p align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=Cerveku&hide_border=true" alt="GitHub streak" height="165" />
+  <img src="https://streak-stats.demolab.com/?user=Cerveku&hide_border=true" alt="GitHub streak" height="165" />
 </p>
 
 ---
